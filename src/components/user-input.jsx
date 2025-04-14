@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { result } from "./result";
 
 const initialData = {
   initial: 1000,
@@ -12,8 +13,10 @@ export default function UserInput() {
 
   function handleOnChange(whichValue, newValue) {
     setValue((previosValue) => {
-      return { ...previosValue, [whichValue]: newValue };
+      return { ...previosValue, [whichValue]: +newValue };
     });
+
+    result(value);
   }
 
   return (
