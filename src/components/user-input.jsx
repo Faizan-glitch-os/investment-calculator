@@ -1,24 +1,4 @@
-import { useState } from "react";
-import { result } from "./result";
-
-const initialData = {
-  initial: 1000,
-  annual: 2000,
-  expected: 3000,
-  duration: 12,
-};
-
-export default function UserInput() {
-  const [value, setValue] = useState(initialData);
-
-  function handleOnChange(whichValue, newValue) {
-    setValue((previosValue) => {
-      return { ...previosValue, [whichValue]: +newValue };
-    });
-
-    result(value);
-  }
-
+export default function UserInput({ handleOnChange, value }) {
   return (
     <section id="user-input">
       <div className="input-group">
